@@ -6,9 +6,9 @@ import Login from "./Login.tsx";
 
 function App() {
     const user = useUser();
-    if(!user.isAuthenticated) {
-        return <Login/>
-    }
+    // if(!user.isAuthenticated) {
+    //     return <Login/>
+    // }
     return user ?
         <TherapistDashboard/>
         : <AdminDashboard/>
