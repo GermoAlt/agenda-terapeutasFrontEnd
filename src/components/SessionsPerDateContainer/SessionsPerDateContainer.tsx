@@ -11,8 +11,6 @@ interface SessionsPerDateContainerProps {
 export const SessionsPerDateContainer: React.FC<
   SessionsPerDateContainerProps
 > = ({ date, sessions }) => {
-  console.log({ tipoDatoDate: typeof date });
-  console.log({ date });
   return (
     // <section className="sessions-per-date-container">
 
