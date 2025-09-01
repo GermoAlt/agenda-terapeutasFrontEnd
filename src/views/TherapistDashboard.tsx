@@ -1,3 +1,4 @@
+
 import { NavBar } from "../components";
 import { FutureSessionsPerDayView } from "./FutureSessionsPerDayView/FutureSessionsPerDayView";
 

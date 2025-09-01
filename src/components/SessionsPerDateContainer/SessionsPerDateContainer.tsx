@@ -1,9 +1,11 @@
+
 import type { TherapySession } from "../../types/TherapySession";
 import "./SessionsPerDateContainer.css";
 
 interface SessionsPerDateContainerProps {
   date: Date;
   sessions: TherapySession[];
+
 }
 
 export const SessionsPerDateContainer: React.FC<
