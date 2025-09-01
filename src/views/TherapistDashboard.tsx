@@ -1,5 +1,15 @@
+import { NavBar, SessionsPerDateContainer } from "../components";
+
+
 const TherapistDashboard = () => {
-    return <h1>Therapist Dashboard</h1>
-}
+  return (
+    <section>
+      <NavBar />
+      <div>
+        <SessionsPerDateContainer />
+      </div>
+    </section>
+  );
+};
 
 export default TherapistDashboard;
