@@ -1,6 +1,7 @@
-import { DateComponent } from "..";
 import type { TherapySession } from "../../types/TherapySession";
 import "./SessionsPerDateContainer.css";
+import {DateComponent} from "../DateComponent/DateComponent.tsx";
+import { SessionCard } from "../SessionCard/SessionCard.tsx";
 
 interface SessionsPerDateContainerProps {
   date: Date;
@@ -19,6 +20,8 @@ export const SessionsPerDateContainer: React.FC<
       {sessions.map((s) => (
         <div key={s.id}>{s.patientName} </div>
       ))}
+      <DateComponent date={new Date()}/>
+      <SessionCard patientName="John Doe" startTime="10:00 AM" endTime="11:00 AM" idSession="1"/>
     </div>
   );
 };
