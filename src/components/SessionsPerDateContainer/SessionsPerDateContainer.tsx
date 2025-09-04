@@ -1,11 +1,10 @@
-
+import { DateComponent } from "..";
 import type { TherapySession } from "../../types/TherapySession";
 import "./SessionsPerDateContainer.css";
 
 interface SessionsPerDateContainerProps {
   date: Date;
   sessions: TherapySession[];
-
 }
 
 export const SessionsPerDateContainer: React.FC<
@@ -16,7 +15,7 @@ export const SessionsPerDateContainer: React.FC<
 
     // </section>
     <div>
-      <div>{date.toString()} </div>
+      <DateComponent date={date} />
       {sessions.map((s) => (
         <div key={s.id}>{s.patientName} </div>
       ))}

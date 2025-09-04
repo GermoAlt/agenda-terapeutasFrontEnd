@@ -4,3 +4,4 @@ export { InputSelect } from "./InputSelect/InputSelect";
 export { Calendar } from "./Calendar/Calendar";
 export { CalendarDay } from "./CalendarDay/CalendarDay";
 export { Session } from "./Session/Session";
+export { DateComponent } from "./DateComponent/DateComponent";
