@@ -13,7 +13,6 @@ export const FutureSessionsPerDayView: React.FC = () => {
     sessionService
       .getSessionsByTherapist(idTherapist)
       .then((sessions: TherapySession[]) => {
-        //1) Se crea objeto donde se aloja la informacion del backend
         const sessionsByDate: { [date: string]: TherapySession[] } = {};
 
         sessions.forEach((session) => {
