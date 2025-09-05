@@ -1,24 +1,26 @@
-
 import type { TherapySession } from "../../types/TherapySession";
+import { DateComponent, SessionCard } from "../index.ts";
 import "./SessionsPerDateContainer.css";
 
 interface SessionsPerDateContainerProps {
   date: Date;
   sessions: TherapySession[];
-
 }
 
 export const SessionsPerDateContainer: React.FC<
   SessionsPerDateContainerProps
 > = ({ date, sessions }) => {
   return (
-    // <section className="sessions-per-date-container">
-
-    // </section>
     <div>
-      <div>{date.toString()} </div>
+      <DateComponent date={date} />
       {sessions.map((s) => (
-        <div key={s.id}>{s.patientName} </div>
+        <SessionCard
+          key={s.id}
+          patientName={s.patientName.toString()}
+          startTime={s.startDate.toLocaleTimeString()}
+          endTime={s.endDate.toLocaleTimeString()}
+          idSession={s.id.toString()}
+        />
       ))}
     </div>
   );
