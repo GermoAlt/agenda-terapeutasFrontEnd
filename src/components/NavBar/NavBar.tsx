@@ -11,7 +11,7 @@ interface AnchorItem {
 export const NavBar: React.FC = () => {
   const anchorItems: AnchorItem[] = [
     { label: "Home", href: "/" },
-    { label: "Products", href: "/products" },
+    { label: "Sessions", href: "/sessions" },
     { label: "About", href: "/about-us" },
     { label: "Contact", href: "contact" },
   ];
