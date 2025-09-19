@@ -22,28 +22,7 @@ export const SessionCard: React.FC<SessionCardProps> = ({
   idSession,
   date,
 }) => {
-  const [selectedSession, setSelectedSession] = useState(false);
-  const cardRef = React.useRef<HTMLDivElement>(null);
-
-  React.useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (cardRef.current && !cardRef.current.contains(event.target as Node)) {
-        setSelectedSession(false);
-      }
-    };
-    if (selectedSession) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [selectedSession]);
-
-  // const handleSelectedSession = (e: React.MouseEvent) => {
-  //   e.stopPropagation();
-  //   setSelectedSession(true);
-  // };
-
+  
   return (
     <div className="session-card-container">
       <SessionSummaryCard

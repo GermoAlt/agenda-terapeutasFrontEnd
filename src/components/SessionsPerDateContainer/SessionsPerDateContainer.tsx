@@ -13,6 +13,20 @@ export const SessionsPerDateContainer: React.FC<
   return (
     <div className="sessions-per-date-container">
       <DateComponent date={date} />
+      <SessionsList sessions={sessions} date={date} />
+    </div>
+  );
+};
+
+const SessionsList = ({
+  sessions,
+  date,
+}: {
+  sessions: TherapySession[];
+  date: Date;
+}) => {
+  return (
+    <>
       {sessions.map((s) => (
         <SessionCard
           date={date}
@@ -23,6 +37,6 @@ export const SessionsPerDateContainer: React.FC<
           idSession={s.id.toString()}
         />
       ))}
-    </div>
+    </>
   );
 };
