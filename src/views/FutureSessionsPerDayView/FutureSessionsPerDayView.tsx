@@ -1,41 +1,32 @@
-import { useEffect, useState } from "react";
 import "./FutureSessionsPerDayView.css";
-import { sessionService } from "../../service";
+
 import type { TherapySession } from "../../types/TherapySession";
 import { SessionsPerDateContainer } from "../../components";
+import { useSessionsByTherapist } from "../../hooks/useSessions";
 
 export const FutureSessionsPerDayView: React.FC = () => {
-  const idTherapist: number = 1; // We will get it from context in the future
-  const [sessionsPerDateContainerList, setSessionsPerDateContainerList] =
-    useState<React.ReactNode[]>([]);
+  const idTherapist = 1; // We will get it from context in the future
+  const { sessions, loading } = useSessionsByTherapist(idTherapist);
+  const sessionsByDate: { [date: string]: typeof sessions } = {};
+  sessions.forEach((session: TherapySession) => {
+    const dateKey = session.startDate.toDateString();
+    if (!sessionsByDate[dateKey]) {
+      sessionsByDate[dateKey] = [];
+    }
+    sessionsByDate[dateKey].push(session);
+  });
 
-  useEffect(() => {
-    sessionService
-      .getSessionsByTherapist(idTherapist)
-      .then((sessions: TherapySession[]) => {
-        const sessionsByDate: { [date: string]: TherapySession[] } = {};
+  const sessionsPerDateContainerList = Object.entries(sessionsByDate).map(
+    ([dateStr, sessions]) => (
+      <SessionsPerDateContainer
+        key={dateStr}
+        date={sessions[0].startDate}
+        sessions={sessions}
+      />
+    )
+  );
 
-        sessions.forEach((session) => {
-          const dateKey = session.startDate.toDateString();
-          if (!sessionsByDate[dateKey]) {
-            sessionsByDate[dateKey] = [];
-          }
-          sessionsByDate[dateKey].push(session);
-        });
+  if (loading) return <div className="loading-message" >Cargando sesiones...</div>;
 
-        const auxArray: React.ReactNode[] = Object.entries(sessionsByDate).map(
-          ([dateStr, sessions]: [string, TherapySession[]]) => (
-            <SessionsPerDateContainer
-              key={dateStr}
-              date={sessions[0].startDate}
-              sessions={sessions}
-            />
-          )
-        );
-
-        setSessionsPerDateContainerList(auxArray);
-      });
-  }, [idTherapist]);
-
-  return <div>{sessionsPerDateContainerList}</div>;
+  return <div className="future-sessions-container" >{sessionsPerDateContainerList}</div>;
 };

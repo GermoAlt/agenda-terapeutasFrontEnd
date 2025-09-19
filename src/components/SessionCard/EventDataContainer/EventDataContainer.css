@@ -1,0 +1,16 @@
+.event-data-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f0f0;
+    color: #555555;
+    padding: 15px; 
+    border-radius: 8px;
+    gap: 10px;
+    min-width: 0; 
+    box-sizing: border-box;
+}
+
+.event-data-container p {
+    margin: 0;
+    word-break: break-word; 
+}

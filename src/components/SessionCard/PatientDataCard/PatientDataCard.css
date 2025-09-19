@@ -1,0 +1,16 @@
+.patient-data-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #d9d9d9;
+    color: #707070;
+    padding: 15px; 
+    border-radius: 8px;
+    min-width: 0; 
+    box-sizing: border-box;
+}
+
+.patient-data-container p {
+    margin: 0;
+    word-break: break-word; 
+}
