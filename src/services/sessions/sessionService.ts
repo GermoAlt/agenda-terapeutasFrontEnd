@@ -1,5 +1,6 @@
-import type { TherapySession } from "../types/TherapySession";
-import { ONE_HOUR } from "../utils/constants/Timeframes";
+import type { TherapySession } from "../../types/TherapySession";
+import { ONE_HOUR } from "../../utils/constants/Timeframes";
+
 
 export const sessionService = {
   async getSessionsByTherapist(idTherapist: number): Promise<TherapySession[]> {

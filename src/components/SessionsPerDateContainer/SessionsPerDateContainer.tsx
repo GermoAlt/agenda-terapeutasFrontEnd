@@ -11,7 +11,6 @@ export const SessionsPerDateContainer: React.FC<
   SessionsPerDateContainerProps
 > = ({ date, sessions }) => {
 
-  
   const renderSessions = () =>
     sessions.map((s: TherapySession) => (
       <SessionCard

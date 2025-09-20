@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "./SessionCard.css";
 import { SessionSummaryCard } from "./SessionSummaryCard/SessionSummaryCard";
 import { SessionDetailsComponent } from "./SessionDetailsComponent/SessionDetailsComponent";
