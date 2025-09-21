@@ -2,5 +2,9 @@ export interface TherapySession {
   id: number;
   startDate: Date;
   endDate: Date;
-  patientName: string;
+  patient: {
+    name: string;
+    age: number;
+    patientSince: Date;
+  };
 }

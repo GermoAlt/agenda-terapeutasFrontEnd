@@ -1,0 +1,17 @@
+.future-sessions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px 0;
+    align-items: stretch;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.loading-message {
+    font-size: 1.5rem;
+    color: #bdc4cc;
+    margin-top: 40px;
+    text-align: center;
+    font-weight: 500;
+}
