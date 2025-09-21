@@ -1,0 +1,23 @@
+.date-badge {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    text-align: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.date-badge > .day {
+    color: black;
+}
+
+.date-badge > .date {
+    color: white;
+    background-color: #707070;
+    padding: 15px;
+    border-radius: 50px;
+    min-width: 50px;
+}

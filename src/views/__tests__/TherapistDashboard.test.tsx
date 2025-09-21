@@ -1,7 +1,7 @@
 // @ts-ignore
 import React from 'react';
 import {render} from "@testing-library/react";
-import TherapistDashboard from "../TherapistDashboard.tsx";
+import TherapistDashboard from "../therapist/TherapistDashboard.tsx";
 
 it('renders according to snapshot', () => {
     const component = render(<TherapistDashboard />);

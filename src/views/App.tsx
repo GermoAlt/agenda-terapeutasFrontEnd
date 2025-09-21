@@ -1,8 +1,7 @@
 import './App.css'
 import {useUser} from "../context/userContext.tsx";
-import TherapistDashboard from "./TherapistDashboard.tsx";
-import AdminDashboard from "./AdminDashboard.tsx";
-import Login from "./Login.tsx";
+import TherapistDashboard from "./therapist/TherapistDashboard.tsx";
+import AdminDashboard from "./admin/AdminDashboard.tsx";
 
 function App() {
     const user = useUser();

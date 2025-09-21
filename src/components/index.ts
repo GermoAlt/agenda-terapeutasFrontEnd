@@ -5,3 +5,5 @@ export { Calendar } from "./Calendar/Calendar";
 export { CalendarDay } from "./CalendarDay/CalendarDay";
 export { DateComponent } from "./DateComponent/DateComponent";
 export { SessionCard } from "./SessionCard/SessionCard";
+export { DateBadge } from "./DateBadge/DateBadge";
+export { CalendarEvents } from "./CalendarEvents/CalendarEvents";

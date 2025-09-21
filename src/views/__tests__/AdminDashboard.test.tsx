@@ -1,6 +1,6 @@
 // @ts-ignore
 import React from 'react';
-import AdminDashboard from "../AdminDashboard";
+import AdminDashboard from "../admin/AdminDashboard.tsx";
 import {render} from "@testing-library/react";
 
 it('renders according to snapshot', () => {

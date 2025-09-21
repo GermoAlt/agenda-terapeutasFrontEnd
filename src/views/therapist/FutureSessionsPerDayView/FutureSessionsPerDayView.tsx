@@ -1,8 +1,8 @@
 import "./FutureSessionsPerDayView.css";
 
-import type { TherapySession } from "../../types/TherapySession";
-import { SessionsPerDateContainer } from "../../components";
-import { useSessionsByTherapist } from "../../hooks/useSessions";
+import type { TherapySession } from "../../../types/TherapySession.ts";
+import { SessionsPerDateContainer } from "../../../components";
+import { useSessionsByTherapist } from "../../../hooks/useSessions.ts";
 
 export const FutureSessionsPerDayView: React.FC = () => {
   const idTherapist = 1; // We will get it from context in the future

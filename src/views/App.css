@@ -24,13 +24,17 @@ button {
   flex: 1;
   min-width: 0;
   max-width: 100%; 
-  overflow-x: hidden; 
+  overflow-x: hidden;
+    display: flex;
 }
 * {
   box-sizing: border-box;
 }
 
 section {
-  max-width: 100%;
-  overflow-x: hidden;
+    max-width: 100%;
+    overflow-x: hidden;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }

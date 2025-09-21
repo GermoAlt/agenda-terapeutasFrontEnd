@@ -2,6 +2,7 @@ import type React from "react";
 import "./NavBar.css";
 import { AlignJustify } from "lucide-react";
 import { InputSelect } from "../InputSelect/InputSelect";
+import {useSessionstorageState} from "rooks";
 
 interface AnchorItem {
   label: string;
@@ -23,6 +24,9 @@ export const NavBar: React.FC = () => {
     { text: "Yearly", value: "yearly" },
   ];
 
+    const [, setView] = useSessionstorageState("view", "calendar")
+  const VIEW_ITEMS = [{text: "Calendar", value: "calendar"}, {text: "Events", value: "futureSessionsPerDay"}, ]
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -37,6 +41,7 @@ export const NavBar: React.FC = () => {
               </a>
             ))}
           </div>
+            <InputSelect items={VIEW_ITEMS} initialValue={{text: "Calendar", value: "calendar"}} onChange={(e:string) => setView(e)}/>
           <InputSelect
             items={PERIODICITY_ITEMS}
             initialValue={{ text: "Periodicity", value: "" }}

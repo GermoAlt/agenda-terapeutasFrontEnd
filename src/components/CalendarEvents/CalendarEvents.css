@@ -1,0 +1,6 @@
+.calendar-events {
+    display: flex;
+    flex: 0 0 100%;
+    background-color: grey;
+    min-height: 100px;
+}
