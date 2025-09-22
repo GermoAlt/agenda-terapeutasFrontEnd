@@ -1,4 +1,4 @@
-import { formatTimeToAmPm } from "../../../utils/Helpers/formatTimeToAmPm";
+import { formatTimeToAmPm } from "../../../utils/helpers/formatTimeToAmPm";
 import "./SessionSummaryCard.css";
 
 interface SessionSummaryCardProps {
