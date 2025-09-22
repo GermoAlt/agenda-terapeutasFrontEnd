@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { sessionService } from "../service";
+import { sessionService } from "../services";
 import type { TherapySession } from "../types/TherapySession";
 
 export function useSessionsByTherapist(idTherapist: number) {
