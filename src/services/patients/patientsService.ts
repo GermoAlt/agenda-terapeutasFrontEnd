@@ -1,8 +1,9 @@
-import { apiClient } from "../api/client";
+import { getApiClient } from "../api/client";
 import { API_ENDPOINTS } from "../api/endpoints";
 
+const apiClient = getApiClient();
+
 export const patientsService = {
-    
   getById: async (id: number) => {
     try {
       const response = await apiClient.get(API_ENDPOINTS.GET_PATIENT_BY_ID(id));
