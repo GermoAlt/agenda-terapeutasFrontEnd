@@ -2,6 +2,7 @@ import type React from "react";
 import "./NavBar.css";
 import { AlignJustify } from "lucide-react";
 import { InputSelect } from "../InputSelect/InputSelect";
+import UserAvatar from "../UserAvatar/UserAvatar";
 
 interface AnchorItem {
   label: string;
@@ -42,6 +43,9 @@ export const NavBar: React.FC = () => {
             initialValue={{ text: "Periodicity", value: "" }}
             onChange={(value) => console.log(value)}
           />
+          <div className="profile-section">
+            <UserAvatar />
+          </div>
         </div>
       </div>
     </nav>
