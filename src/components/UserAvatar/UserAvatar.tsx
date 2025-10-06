@@ -1,25 +1,32 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import AvatarButton from './AvatarButton';
+import ProfileDropdown from './ProfileDropdown';
 import './UserAvatar.css';
 
 interface UserAvatarProps {
   userName?: string;
+  userEmail?: string;
   avatarUrl?: string;
   initials?: string;
 }
 
-const UserAvatar: React.FC<UserAvatarProps> = ({ 
-  userName = "John Doe",
+type MenuAction = 'account' | 'settings' | 'logout';
+
+const UserAvatar: React.FC<UserAvatarProps> = ({
+  userName = 'Joe Jonas',
+  userEmail = 'jjonas@mail.com',
   avatarUrl,
-  initials = "JD"
+  initials = 'JJ',
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
+  // Cerrar al hacer clic fuera
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
-        dropdownRef.current && 
+        dropdownRef.current &&
         buttonRef.current &&
         !dropdownRef.current.contains(event.target as Node) &&
         !buttonRef.current.contains(event.target as Node)
@@ -27,86 +34,48 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
         setIsOpen(false);
       }
     };
-
     document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleDropdown = () => setIsOpen((p) => !p);
 
-//   const handleMenuClick = (action: string) => {
-//     console.log(`Clicked: ${action}`);
-//     setIsOpen(false);
-    
-//     switch (action) {
-//       case 'account':
-//         // Navegar a cuenta
-//         break;
-//       case 'settings':
-//         // Navegar a configuración
-//         break;
-//       case 'logout':
-//         // Manejar logout
-//         break;
-//     }
-//   };
+  const handleAction = (action: MenuAction) => {
+    setIsOpen(false);
+    // acá irían tus rutas/acciones reales
+    switch (action) {
+      case 'account':
+        // navigate('/account');
+        break;
+      case 'settings':
+        // navigate('/settings');
+        break;
+      case 'logout':
+        // logout();
+        break;
+    }
+  };
 
   return (
     <div className="profile-section">
-      <button 
+      <AvatarButton
         ref={buttonRef}
-        className="profile-button" 
+        userName={userName}
+        avatarUrl={avatarUrl}
+        initials={initials}
         onClick={toggleDropdown}
-      >
-        {avatarUrl ? (
-          <img src={avatarUrl} alt={userName} className="avatar-image" />
-        ) : (
-          initials
-        )}
-      </button>
-      
-      <div 
+      />
+
+      <ProfileDropdown
         ref={dropdownRef}
-        className={`profile-dropdown ${isOpen ? 'active' : ''}`}
-      >
-        <div className="dropdown-header">
-          <div className="dropdown-avatar">
-            {avatarUrl ? (
-              <img src={avatarUrl} alt={userName} className="dropdown-avatar-image" />
-            ) : (
-              initials
-            )}
-          </div>
-          <div className="dropdown-name">{userName}</div>
-        </div>
-        
-        <div className="dropdown-menu">
-          <button 
-            className="dropdown-item" 
-            onClick={() => handleMenuClick('account')}
-          >
-            My Account
-          </button>
-          <button 
-            className="dropdown-item" 
-            onClick={() => handleMenuClick('settings')}
-          >
-            Settings
-          </button>
-          <button 
-            className="dropdown-item logout" 
-            onClick={() => handleMenuClick('logout')}
-          >
-            Log out
-          </button>
-        </div>
-      </div>
-      
-      {isOpen && <div className="overlay" onClick={() => setIsOpen(false)} />}
+        isOpen={isOpen}
+        userName={userName}
+        userEmail={userEmail}
+        avatarUrl={avatarUrl}
+        initials={initials}
+        onAction={handleAction}
+        onClose={() => setIsOpen(false)}
+      />
     </div>
   );
 };

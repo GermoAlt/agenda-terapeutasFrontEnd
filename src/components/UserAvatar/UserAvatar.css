@@ -3,6 +3,7 @@
   position: relative;
 }
 
+/* ---------- Avatar Button ---------- */
 .profile-button {
   width: 40px;
   height: 40px;
@@ -36,14 +37,15 @@
   object-fit: cover;
 }
 
+/* ---------- Dropdown Container ---------- */
 .profile-dropdown {
   position: absolute;
-  top: 50px;
+  top: 55px;
   right: 0;
-  background: white;
-  border-radius: 8px;
+  background: #fff;
+  border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  width: 200px;
+  width: 240px;
   overflow: hidden;
   z-index: 1000;
   opacity: 0;
@@ -58,15 +60,16 @@
   visibility: visible;
 }
 
+/* ---------- Header ---------- */
 .dropdown-header {
-  padding: 15px;
-  border-bottom: 1px solid #eee;
   text-align: center;
+  padding: 20px 16px 14px 16px;
+  border-bottom: 1px solid #eee;
 }
 
 .dropdown-avatar {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   background: linear-gradient(135deg, #4CAF50, #45a049);
   margin: 0 auto 10px;
@@ -75,7 +78,7 @@
   justify-content: center;
   color: white;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 22px;
   overflow: hidden;
 }
 
@@ -87,53 +90,58 @@
 
 .dropdown-name {
   font-weight: 600;
-  font-size: 14px;
-  color: #333;
+  font-size: 15px;
+  color: #222;
+  margin-bottom: 2px;
 }
 
-.dropdown-menu {
-  padding: 8px 0;
+.dropdown-email {
+  font-size: 13px;
+  color: #666;
 }
 
-.dropdown-item {
+/* ---------- Menu Items ---------- */
+.profile-dropdown-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-dropdown-item {
   display: block;
   width: 100%;
-  padding: 12px 15px;
+  padding: 12px 18px;
   text-align: left;
   border: none;
   background: none;
   cursor: pointer;
   font-size: 14px;
   color: #333;
-  text-decoration: none;
-  transition: background-color 0.2s ease;
   font-family: inherit;
+  transition: background-color 0.2s ease;
 }
 
-.dropdown-item:hover {
+.profile-dropdown-item:hover {
   background-color: #f8f9fa;
 }
 
-.dropdown-item:focus {
-  background-color: #f8f9fa;
-  outline: none;
+.profile-dropdown-item.divider {
+  border-bottom: 1px solid #eee;
 }
 
-.dropdown-item.logout {
+/* ---------- Log out ---------- */
+.profile-dropdown-item.logout {
   background-color: #ff6b6b;
   color: white;
-  margin: 8px;
-  border-radius: 4px;
+  margin: 10px 12px;
+  border-radius: 8px; 
+  box-shadow: 0 2px 6px rgba(255, 107, 107, 0.35);
+  width: calc(100% - 24px);
 }
-
-.dropdown-item.logout:hover {
+.profile-dropdown-item.logout:hover {
   background-color: #ff5252;
 }
 
-.dropdown-item.logout:focus {
-  background-color: #ff5252;
-}
-
+/* ---------- Overlay  ---------- */
 .overlay {
   position: fixed;
   top: 0;
@@ -142,41 +150,31 @@
   bottom: 0;
   background: transparent;
   z-index: 999;
-  cursor: default;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .profile-dropdown {
-    right: -10px;
-    width: 180px;
-  }
-}
-
-/* Dark mode support (opcional) */
+/* ---------- Dark Mode ---------- */
 @media (prefers-color-scheme: dark) {
   .profile-dropdown {
     background: #2a2a2a;
     border: 1px solid #404040;
   }
-  
+
   .dropdown-header {
     border-bottom: 1px solid #404040;
   }
-  
-  .dropdown-name {
-    color: #ffffff;
+
+  .dropdown-name,
+  .dropdown-email,
+  .profile-dropdown-item {
+    color: #fff;
   }
-  
-  .dropdown-item {
-    color: #ffffff;
-  }
-  
-  .dropdown-item:hover {
+
+  .profile-dropdown-item:hover {
     background-color: #404040;
   }
-  
-  .dropdown-item:focus {
-    background-color: #404040;
+
+  .profile-dropdown-item.logout {
+    background-color: #ff6b6b;
+    color: white;
   }
 }
