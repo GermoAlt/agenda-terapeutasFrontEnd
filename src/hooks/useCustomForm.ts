@@ -13,5 +13,7 @@ export function useCustomForm<T extends Record<string, unknown>>(
     }));
   };
 
-  return { formData, setFormData, handleChange };
+  const resetForm = () => setFormData(initialState);
+
+  return { formData, setFormData, handleChange, resetForm };
 }
