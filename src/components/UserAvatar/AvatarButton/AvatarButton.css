@@ -1,0 +1,33 @@
+/* ---------- Avatar Button ---------- */
+.profile-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.profile-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+.profile-button:focus {
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}

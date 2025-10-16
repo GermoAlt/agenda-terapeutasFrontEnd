@@ -1,5 +1,5 @@
 import React from 'react';
-import './UserAvatar.css';
+import './ProfileDropdown.css';
 
 type MenuAction = 'account' | 'settings' | 'logout';
 
@@ -34,13 +34,11 @@ const ProfileDropdown = React.forwardRef<HTMLDivElement, ProfileDropdownProps>(
           {userEmail && <div className="dropdown-email">{userEmail}</div>}
         </div>
 
-        {/* 🔁 RENOMBRADO para evitar conflicto con Bootstrap */}
         <div className="profile-dropdown-menu">
           <button
             type="button"
             className="profile-dropdown-item divider"
             onClick={() => onAction('account')}
-            role="menuitem"
           >
             My Account
           </button>
@@ -49,7 +47,6 @@ const ProfileDropdown = React.forwardRef<HTMLDivElement, ProfileDropdownProps>(
             type="button"
             className="profile-dropdown-item divider"
             onClick={() => onAction('settings')}
-            role="menuitem"
           >
             Settings
           </button>
@@ -58,7 +55,6 @@ const ProfileDropdown = React.forwardRef<HTMLDivElement, ProfileDropdownProps>(
             type="button"
             className="profile-dropdown-item logout"
             onClick={() => onAction('logout')}
-            role="menuitem"
           >
             Log out
           </button>

@@ -1,5 +1,5 @@
 import React from 'react';
-import './UserAvatar.css';
+import './AvatarButton.css';
 
 interface AvatarButtonProps {
   userName: string;

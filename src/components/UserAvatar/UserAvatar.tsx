@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import AvatarButton from './AvatarButton';
-import ProfileDropdown from './ProfileDropdown';
+import AvatarButton from './AvatarButton/AvatarButton';
+import ProfileDropdown from './ProfileDropdown/ProfileDropdown';
+import './AvatarButton/AvatarButton.css';
+import './ProfileDropdown/ProfileDropdown.css';
 import './UserAvatar.css';
 
 interface UserAvatarProps {
@@ -14,7 +16,7 @@ type MenuAction = 'account' | 'settings' | 'logout';
 
 const UserAvatar: React.FC<UserAvatarProps> = ({
   userName = 'Joe Jonas',
-  userEmail = 'jjonas@mail.com',
+  userEmail = 'joejonas@mail.com',
   avatarUrl,
   initials = 'JJ',
 }) => {
@@ -22,7 +24,6 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
   const buttonRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Cerrar al hacer clic fuera
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -42,16 +43,15 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
 
   const handleAction = (action: MenuAction) => {
     setIsOpen(false);
-    // acá irían tus rutas/acciones reales
     switch (action) {
       case 'account':
-        // navigate('/account');
+        // navegar a cuenta
         break;
       case 'settings':
-        // navigate('/settings');
+        // navegar a configuración
         break;
       case 'logout':
-        // logout();
+        // cerrar sesión
         break;
     }
   };
