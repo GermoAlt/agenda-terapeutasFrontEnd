@@ -133,7 +133,9 @@ export const SESSION_SERVICE = {
     }
 
     return apiClient
-      .get(API_ENDPOINTS.GET_SESSIONS_BY_THERAPIST(therapistId), { signal })
+      .get(API_ENDPOINTS.SESSIONS.GET_SESSIONS_BY_THERAPIST(therapistId), {
+        signal,
+      })
       .then((response) => {
         return response.data;
       })
