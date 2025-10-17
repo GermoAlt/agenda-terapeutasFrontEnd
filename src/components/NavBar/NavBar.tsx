@@ -40,23 +40,3 @@ export const NavBar: React.FC = () => {
     </nav>
   );
 };
-
-{
-  /* {anchorItems.map((item) => (
-              <a className="nav-link" href={item.href} key={item.label}>
-                {item.label}
-              </a>
-            ))} */
-}
-
-// const anchorItems: AnchorItem[] = [
-  //   { label: "Home", href: "/" },
-  //   { label: "Sessions", href: "/sessions" },
-  //   { label: "About", href: "/about-us" },
-  //   { label: "Contact", href: "contact" },
-  // ];
-
-  // interface AnchorItem {
-//   label: string;
-//   href: string;
-// }
