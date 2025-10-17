@@ -2,6 +2,12 @@ import type React from "react";
 import "./NavBar.css";
 import { AlignJustify } from "lucide-react";
 import { InputSelect } from "../InputSelect/InputSelect";
+import UserAvatar from "../UserAvatar/UserAvatar";
+
+interface AnchorItem {
+  label: string;
+  href: string;
+}
 import companyLogo from "../../assets/TASC-company-logo.svg";
 
 export const NavBar: React.FC = () => {
@@ -29,12 +35,14 @@ export const NavBar: React.FC = () => {
             initialValue={{ text: "Periodicity", value: "" }}
             onChange={(value) => console.log(value)}
           />
-          <InputSelect
-            items={PERIODICITY_ITEMS}
-            initialValue={{ text: "Periodicity", value: "" }}
-            onChange={(value) => console.log(value)}
-          />
-          <div className="avatar-placeholder"></div>
+          <div className="profile-section">
+            <UserAvatar user={{
+              userName: 'Joe Jonas',
+              userEmail: 'joejonas@mail.com',
+              avatarUrl: '',
+              initials: 'JJ',
+            }} />
+          </div>
         </div>
       </div>
     </nav>
