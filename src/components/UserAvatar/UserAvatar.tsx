@@ -4,22 +4,19 @@ import ProfileDropdown from './ProfileDropdown/ProfileDropdown';
 import './AvatarButton/AvatarButton.css';
 import './ProfileDropdown/ProfileDropdown.css';
 import './UserAvatar.css';
+import type { AvatarUser } from '../../types/AvatarUser';
 
 interface UserAvatarProps {
-  userName?: string;
-  userEmail?: string;
-  avatarUrl?: string;
-  initials?: string;
+  user: AvatarUser;
 }
 
 type MenuAction = 'account' | 'settings' | 'logout';
 
-const UserAvatar: React.FC<UserAvatarProps> = ({
-  userName = 'Joe Jonas',
-  userEmail = 'joejonas@mail.com',
-  avatarUrl,
-  initials = 'JJ',
-}) => {
+
+
+const UserAvatar: React.FC<UserAvatarProps> = ({ user}
+
+  ) => {
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -60,19 +57,16 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
     <div className="profile-section">
       <AvatarButton
         ref={buttonRef}
-        userName={userName}
-        avatarUrl={avatarUrl}
-        initials={initials}
+        userName={user.userName}
+        avatarUrl={user.avatarUrl}
+        initials={user.initials}
         onClick={toggleDropdown}
       />
 
       <ProfileDropdown
         ref={dropdownRef}
         isOpen={isOpen}
-        userName={userName}
-        userEmail={userEmail}
-        avatarUrl={avatarUrl}
-        initials={initials}
+        user={user}
         onAction={handleAction}
         onClose={() => setIsOpen(false)}
       />

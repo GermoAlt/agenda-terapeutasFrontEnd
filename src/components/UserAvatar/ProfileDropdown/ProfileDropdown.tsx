@@ -1,37 +1,34 @@
 import React from 'react';
 import './ProfileDropdown.css';
+import type { AvatarUser } from '../../../types/AvatarUser';
 
 type MenuAction = 'account' | 'settings' | 'logout';
 
 interface ProfileDropdownProps {
   isOpen: boolean;
-  userName: string;
-  userEmail?: string;
-  avatarUrl?: string;
-  initials: string;
+  user: AvatarUser;
   onAction: (action: MenuAction) => void;
   onClose: () => void;
 }
 
 const ProfileDropdown = React.forwardRef<HTMLDivElement, ProfileDropdownProps>(
-  ({ isOpen, userName, userEmail, avatarUrl, initials, onAction, onClose }, ref) => (
+  ({user, isOpen, onAction, onClose }) => (
     <>
       <div
-        ref={ref}
         className={`profile-dropdown ${isOpen ? 'active' : ''}`}
         role="menu"
         aria-hidden={!isOpen}
       >
         <div className="dropdown-header">
           <div className="dropdown-avatar">
-            {avatarUrl ? (
-              <img src={avatarUrl} alt={userName} className="dropdown-avatar-image" />
+            {user.avatarUrl ? (
+              <img src={user.avatarUrl} alt={user.userName} className="dropdown-avatar-image" />
             ) : (
-              initials
+              user.initials
             )}
           </div>
-          <div className="dropdown-name">{userName}</div>
-          {userEmail && <div className="dropdown-email">{userEmail}</div>}
+          <div className="dropdown-name">{user.userName}</div>
+          {user.userEmail && <div className="dropdown-email">{user.userEmail}</div>}
         </div>
 
         <div className="profile-dropdown-menu">

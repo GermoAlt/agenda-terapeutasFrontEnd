@@ -44,7 +44,12 @@ export const NavBar: React.FC = () => {
             onChange={(value) => console.log(value)}
           />
           <div className="profile-section">
-            <UserAvatar />
+            <UserAvatar user={{
+              userName: 'Joe Jonas',
+              userEmail: 'joejonas@mail.com',
+              avatarUrl: '',
+              initials: 'JJ',
+            }} />
           </div>
         </div>
       </div>
