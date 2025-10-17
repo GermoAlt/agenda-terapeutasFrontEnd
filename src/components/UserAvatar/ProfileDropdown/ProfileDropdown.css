@@ -1,0 +1,142 @@
+/* ---------- Dropdown Container ---------- */
+.profile-dropdown {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  width: 240px;
+  overflow: hidden;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-10px);
+  visibility: hidden;
+  transition: all 0.2s ease;
+}
+
+.profile-dropdown.active {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* ---------- Header ---------- */
+.dropdown-header {
+  text-align: center;
+  padding: 20px 16px 14px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.dropdown-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  margin: 0 auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+  overflow: hidden;
+}
+
+.dropdown-avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dropdown-name {
+  font-weight: 600;
+  font-size: 15px;
+  color: #222;
+  margin-bottom: 2px;
+}
+
+.dropdown-email {
+  font-size: 13px;
+  color: #666;
+}
+
+/* ---------- Menu Items ---------- */
+.profile-dropdown-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 12px 18px;
+  text-align: left;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  font-family: inherit;
+  transition: background-color 0.2s ease;
+}
+
+.profile-dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+.profile-dropdown-item.divider {
+  border-bottom: 1px solid #eee;
+}
+
+/* ---------- Log out ---------- */
+.profile-dropdown-item.logout {
+  background-color: #ff6b6b;
+  color: white;
+  margin: 10px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(255, 107, 107, 0.35);
+  width: calc(100% - 24px);
+}
+
+.profile-dropdown-item.logout:hover {
+  background-color: #ff5252;
+}
+
+/* ---------- Overlay ---------- */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  z-index: 999;
+}
+
+/* ---------- Dark Mode ---------- */
+@media (prefers-color-scheme: dark) {
+  .profile-dropdown {
+    background: #2a2a2a;
+    border: 1px solid #404040;
+  }
+
+  .dropdown-header {
+    border-bottom: 1px solid #404040;
+  }
+
+  .dropdown-name,
+  .dropdown-email,
+  .profile-dropdown-item {
+    color: #fff;
+  }
+
+  .profile-dropdown-item:hover {
+    background-color: #404040;
+  }
+
+  .profile-dropdown-item.logout {
+    background-color: #ff6b6b;
+    color: white;
+  }
+}

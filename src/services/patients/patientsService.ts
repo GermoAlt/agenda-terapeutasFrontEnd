@@ -6,7 +6,7 @@ const apiClient = getApiClient();
 export const PATIENT_SERVICE = {
   GET_PATIENT_BY_ID: async (id: number) => {
     try {
-      const response = await apiClient.get(API_ENDPOINTS.GET_PATIENT_BY_ID(id));
+      const response = await apiClient.get(API_ENDPOINTS.PATIENTS.GET_PATIENT_BY_ID(id));
       return response.data;
     } catch (error) {
       console.error(`Error fetching patient with ID ${id}:`, error);
@@ -15,8 +15,8 @@ export const PATIENT_SERVICE = {
 
   GET_ALL_ACTIVE_PATIENTS: async () => {
     try {
-      const { data } = await apiClient.get(
-        API_ENDPOINTS.GET_ALL_ACTIVE_PATIENTS
+      const response = await apiClient.get(
+        API_ENDPOINTS.PATIENTS.GET_ALL_ACTIVE_PATIENTS
       );
       return data;
     } catch (error) {
