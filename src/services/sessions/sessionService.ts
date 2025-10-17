@@ -1,9 +1,15 @@
 import type { TherapySession } from "../../types/TherapySession";
 import { ONE_HOUR } from "../../utils/constants/Timeframes";
+import { getApiClient } from "../api/client";
+import { API_ENDPOINTS } from "../api/endpoints";
 
+const apiClient = getApiClient();
 
-export const sessionService = {
-  async getSessionsByTherapist(idTherapist: number): Promise<TherapySession[]> {
+export const SESSION_SERVICE = {
+  async GET_SESSIONS_BY_THERAPIST_ID_MOCK(
+    therapistId: number
+  ): Promise<TherapySession[]> {
+    console.log("Fetching sessions for therapist ID:", therapistId);
     return [
       {
         id: 1,
@@ -116,5 +122,27 @@ export const sessionService = {
         },
       },
     ];
+  },
+
+  GET_SESSIONS_BY_THERAPIST_ID: async (
+    therapistId: number,
+    signal?: AbortSignal
+  ): Promise<TherapySession[]> => {
+    if (!therapistId || therapistId <= 0) {
+      throw new Error("Invalid therapist ID");
+    }
+
+    return apiClient
+      .get(API_ENDPOINTS.GET_SESSIONS_BY_THERAPIST(therapistId), { signal })
+      .then((response) => {
+        return response.data;
+      })
+      .catch((e: Error) => {
+        if (e.name === "CanceledError" || e.name === "AbortError") {
+          return;
+        }
+
+        throw new Error(e.message || "Error fetching sessions for therapist");
+      });
   },
 };

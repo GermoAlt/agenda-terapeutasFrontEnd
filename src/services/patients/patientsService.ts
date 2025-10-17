@@ -3,8 +3,8 @@ import { API_ENDPOINTS } from "../api/endpoints";
 
 const apiClient = getApiClient();
 
-export const patientsService = {
-  getById: async (id: number) => {
+export const PATIENT_SERVICE = {
+  GET_PATIENT_BY_ID: async (id: number) => {
     try {
       const response = await apiClient.get(API_ENDPOINTS.PATIENTS.GET_PATIENT_BY_ID(id));
       return response.data;
@@ -13,12 +13,12 @@ export const patientsService = {
     }
   },
 
-  getAllActive: async () => {
+  GET_ALL_ACTIVE_PATIENTS: async () => {
     try {
       const response = await apiClient.get(
         API_ENDPOINTS.PATIENTS.GET_ALL_ACTIVE_PATIENTS
       );
-      return response.data;
+      return data;
     } catch (error) {
       console.error("Error fetching all active patients:", error);
     }

@@ -35,6 +35,7 @@ export const NavBar: React.FC = () => {
             initialValue={{ text: "Periodicity", value: "" }}
             onChange={(value) => console.log(value)}
           />
+          <div className="avatar-placeholder"></div>
           <div className="profile-section">
             <UserAvatar user={{
               userName: 'Joe Jonas',
