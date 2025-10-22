@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`renders according to snapshot 1`] = `
+<body>
+  <div>
+    <h1>
+      Admin Dashboard
+    </h1>
+  </div>
+</body>
+`;

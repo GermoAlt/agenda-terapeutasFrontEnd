@@ -1,0 +1,16 @@
+.session-card-container {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    background-color: #fdfdfd;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    gap: 25px;
+    border-radius: 6px;
+    border: 1px solid #f7f7f7;
+    transition: background-color 0.2s ease;
+}
+
+
