@@ -1,6 +1,8 @@
 import "./CalendarView.css";
-import {Calendar} from "../../../components";
 import {useState} from "react";
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
+import timeGridPlugin from '@fullcalendar/timegrid' // a plugin!
 
 export const CalendarView: React.FC = () => {
 
@@ -15,7 +17,13 @@ export const CalendarView: React.FC = () => {
 
     return (
         <div id="calendar-view">
-            <Calendar startDate={getSundayOfWeek(week)}/>
+            {/*<Calendar startDate={getSundayOfWeek(week)}/>*/}
+            <FullCalendar plugins={[dayGridPlugin, timeGridPlugin]}
+                          initialDate={getSundayOfWeek(week)}
+                          headerToolbar={{
+                            end: 'today timeGrid prev,next'
+                          }}
+            />
         </div>
     )
 }
